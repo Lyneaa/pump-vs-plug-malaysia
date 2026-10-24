@@ -1,8 +1,1 @@
 # A Data-Driven Framework for Vehicle Running Cost Prediction and Fueling Infrastructure Route Optimization Across ICE, HEV, and EVs
-
-# Data Source
-Official TNB electricity tariffs: https://myenergystats.st.gov.my/
-Historical Fuel Price: https://data.gov.my/data-catalogue/fuelprice
-Malaysia Car Registration: https://data.gov.my/data-catalogue/registration_transactions_car
-Car Dataset (Datasets for All Model Years (1984–2026)): https://www.fueleconomy.gov/feg/download.shtml
-EV Dataset : https://github.com/open-ev-data/open-ev-data-dataset
