@@ -1,0 +1,68 @@
+column,dtype,description,pct_missing
+vehicle_id,object,Unique id: FE-<fueleconomy.gov id> or OE-<OpenEV unique_code>,0.0
+source,category,"Provenance: fueleconomy.gov only, fueleconomy.gov + OpenEV enrichment, or OpenEV only",0.0
+year,int64,Model year,0.0
+make,category,Manufacturer,0.0
+model,object,Model name (FE: includes trim/wheel info),0.0
+base_model,object,EPA base model name,2.4
+trim,object,Trim/variant (OpenEV-only rows; FE encodes trim inside `model`),97.6
+oe_unique_code,object,Matched OpenEV record,91.3
+match_confidence,category,Entity-resolution confidence (range agreement),93.7
+match_year_gap,float64,|FE year - OpenEV year| of the match,93.7
+consumption_estimated,boolean,True if elec consumption was estimated via WLTP->EPA calibration,0.0
+range_epa_is_estimated,boolean,True if range_km was converted from WLTP,0.0
+powertrain,category,"ICE, MHEV (mild hybrid), HEV (full hybrid), PHEV (plug-in), BEV (battery electric)",0.0
+fuel_grade,category,Regular / Premium / Diesel / Electricity,0.0
+fuel_family,category,Gasoline / Diesel / Electricity,0.0
+flex_fuel,boolean,E85-capable,2.4
+vehicle_class,category,"Car, SUV, Pickup, Van, Special Purpose",0.0
+size_class,category,Cleaned EPA size class,0.0
+epa_vehicle_class,object,Original EPA VClass,2.4
+drivetrain,category,FWD / RWD / AWD / 4WD / 2WD,0.0
+transmission_type,category,"Automatic, Manual, DCT, CVT, Single-speed",0.0
+n_gears,float64,Number of gears,8.9
+engine_displacement_l,float64,Engine displacement (L),11.2
+engine_cylinders,float64,Number of cylinders,11.2
+turbo,boolean,Turbocharged,2.4
+supercharger,boolean,Supercharged,2.4
+start_stop,boolean,Engine start-stop,2.4
+battery_voltage,float64,Hybrid battery voltage (V),91.9
+power_kw,float64,System power (kW) from OpenEV; else sum of motor ratings parsed from FE evMotor (upper bound),86.2
+torque_nm,float64,System torque (Nm),92.6
+accel_0_100_s,float64,0-100 km/h (s),92.5
+top_speed_kmh,float64,Top speed (km/h),92.4
+fuel_l_100km_city,float64,"Fuel use, city (L/100km)",11.2
+fuel_l_100km_hwy,float64,"Fuel use, highway (L/100km)",11.2
+fuel_l_100km_comb,float64,"Fuel use, combined (L/100km); PHEV = charge-sustaining",11.2
+elec_kwh_100km_city,float64,"Electricity use, city (kWh/100km, wall-to-wheel)",88.5
+elec_kwh_100km_hwy,float64,"Electricity use, highway (kWh/100km)",88.5
+elec_kwh_100km_comb,float64,"Electricity use, combined (kWh/100km); PHEV = charge-depleting",86.1
+energy_kwh_100km,float64,"Unified energy intensity, all powertrains (kWh/100km)",0.0
+mpg_or_mpge_comb,float64,Original EPA combined MPG (MPGe for BEV),2.4
+co2_g_km,float64,Tailpipe CO2 (g/km),0.0
+epa_fe_score,float64,EPA fuel-economy score 1-10,2.4
+epa_ghg_score,float64,EPA greenhouse-gas score 1-10,2.4
+gas_guzzler,boolean,Subject to US gas-guzzler tax,2.4
+range_km,float64,"BEV range, EPA or EPA-equivalent (km)",88.8
+range_wltp_km,float64,"BEV range, WLTP (km)",93.8
+usable_range_km,float64,10-80% SoC range (km),88.8
+phev_elec_range_km,float64,PHEV electric range (km),97.3
+phev_utility_factor,float64,Share of km driven on electricity (EPA UF),97.3
+phev_blended,boolean,PHEV uses engine during charge-depleting mode,2.4
+battery_net_kwh,float64,Usable battery (kWh),91.8
+battery_gross_kwh,float64,Gross battery (kWh),91.8
+battery_chemistry,category,li-ion / lfp / nmc,91.3
+has_dc_charging,boolean,Supports DC fast charging,91.3
+dc_max_kw,float64,Peak DC charging power (kW),92.0
+ac_max_kw,float64,Max AC charging power (kW),91.3
+dc_c_rate,float64,Peak DC kW / net kWh,92.0
+charge_connectors,object,All charging connectors,91.3
+primary_connector,category,"Primary connector (CCS2, NACS, GB/T, ...)",91.3
+charge_time_240v_h,float64,Hours to charge at 240 V (EPA),88.5
+dc_10_80_min_est,float64,Estimated 10-80% DC charge time (min),92.0
+km_per_charge_min,float64,Usable km gained per minute of DC charging,92.0
+cost_myr_100km,float64,"Energy cost per 100 km (MYR, Malaysian price assumptions)",0.0
+annual_cost_myr,float64,"Annual energy cost at 20,000 km (MYR)",0.0
+annual_fuel_cost_usd,float64,"EPA annual fuel cost, US prices, 15k mi (USD)",2.4
+energy_robust_z,float64,Robust z-score of energy_kwh_100km within powertrain,0.0
+is_energy_outlier,boolean,|robust z| > 3.5 within powertrain,0.0
