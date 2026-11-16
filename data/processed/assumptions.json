@@ -1,0 +1,14 @@
+{
+  "PRICE_MYR": {
+    "RON95": 1.99,
+    "RON97": 4.9,
+    "Diesel": 5.27,
+    "elec_home": 0.45,
+    "elec_dc": 1.3
+  },
+  "HOME_CHARGING_SHARE": 0.7,
+  "ANNUAL_KM": 20000,
+  "EPA_PER_WLTP": 0.7725490196078432,
+  "YEAR_MIN": 2015,
+  "YEAR_MAX": 2026
+}
